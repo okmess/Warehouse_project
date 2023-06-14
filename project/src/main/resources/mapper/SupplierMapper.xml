@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD main.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.li.project.mapper.SupplierMapper">
+    <select id="findList" resultType="com.li.project.bean.Supplier">
+        select * from supplier where supplierID like ${keyword}
+    </select>
+    <select id="findAll" resultType="com.li.project.bean.Supplier">
+        select * from supplier
+    </select>
+    <select id="searchIDByName" resultType="java.lang.String">
+        select supplierID from supplier where supplierName=#{supplierName}
+    </select>
+</mapper>

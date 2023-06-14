@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD main.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.li.project.mapper.CustomerMapper">
+    <select id="findCustomer" resultType="com.li.project.bean.Customer">
+        select * from customer where customerID = ${ID}
+    </select>
+    <select id="findList" resultType="com.li.project.bean.Customer">
+        select * from customer where customerID like ${ID}
+    </select>
+    <select id="findAll" resultType="com.li.project.bean.Customer">
+        select * from customer
+    </select>
+    <update id="modifyPermit">
+        update customer set permit=#{permit} where customerID =#{customerID}
+    </update>
+</mapper>

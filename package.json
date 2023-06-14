@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "echarts": "^5.4.2",
+    "element-ui": "^2.15.13",
+    "layui-src": "^2.6.8",
+    "vue-echarts": "^6.5.4",
+    "vue-router": "^3.6.5",
+    "vue-session": "^1.0.0"
+  },
+  "devDependencies": {
+    "@vue/composition-api": "^1.7.1",
+    "babel-plugin-component": "^1.1.1"
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD main.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.li.project.mapper.StaffMapper">
+    <select id="findPassword" resultType="com.li.project.bean.Staff">
+        select * from staff where staffID=#{staffID}
+    </select>
+    <select id="findStaffID" resultType="java.lang.String">
+        select staffID from staff where staffID=#{staffID}
+    </select>
+    <update id="updateStatus">
+        update staff set status=#{status} where staffID=#{staffID}
+    </update>
+    <insert id="addStaff" parameterType="com.li.project.bean.Staff">
+        insert into staff (staffID,password,name,status) values (#{staffID},#{password},#{name},#{status})
+    </insert>
+</mapper>

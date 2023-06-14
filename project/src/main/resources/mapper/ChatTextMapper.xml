@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD main.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.li.project.mapper.ChatTextMapper">
+    <insert id="InsertMessge" parameterType="com.li.project.bean.ChatText">
+        insert into chat_text(staffID,customerID,message,`date`)
+        values (#{staffID},#{customerID},#{message},#{date})
+    </insert>
+
+    <select id="findMessgeByID" resultType="com.li.project.bean.ChatText">
+        select staffID,customerID,message,`date` from chat_text
+        where staffID=#{staffID} and customerID=#{customerID}
+    </select>
+</mapper>

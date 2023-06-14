@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD main.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.li.project.mapper.ProductMapper">
+    <insert id="insertProduct" parameterType="com.li.project.bean.Product">
+        insert into products (productID,kinds,productName,unitPrice,supplierID,supplierName,amount,
+        warningAmount,warehouseID,status)
+        values(#{productID},#{kinds},#{productName},#{unitPrice},#{supplierID},
+        #{supplierName},#{amount},#{warningAmount},#{warehouseID},#{status})
+    </insert>
+    <select id="findByID" resultType="com.li.project.bean.Product">
+        select * from products where productID = ${productID}
+    </select>
+    <select id="findByName" resultType="com.li.project.bean.Product">
+        select * from products where productName = ${productName}
+    </select>
+    <select id="findQuerry" resultType="com.li.project.bean.Product">
+        select * from products ${key}
+    </select>
+    <select id="findUnitPriceByName" resultType="int">
+        select unitPrice from products where productName=${productName}
+    </select>
+
+    <select id="findNameByKinds" resultType="String">
+        select distinct productName from products where kinds=#{kinds}
+    </select>
+
+    <select id="CountBySupplierID" resultType="java.lang.Integer">
+        select count(productID) from products where supplierID=#{supplierID}
+    </select>
+
+    <select id="searchByWarehouseID" resultType="com.li.project.bean.Product">
+        select * from products where warehouseID=#{warehouseID}
+    </select>
+
+    <update id="updateAmount" >
+        update products set amount=#{amount},status=#{status}  where productName =#{productName}
+    </update>
+    <update id="updateStatus" >
+        update products set status=#{status} where productID =#{productID}
+    </update>
+</mapper>
